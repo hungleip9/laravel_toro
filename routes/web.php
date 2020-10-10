@@ -2,20 +2,56 @@
 
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+
 
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('hello1', function () {
+    return view('hello1');
+});
+Route::get('hello2', function () {
+    return view('hello2',[
+        'name' => 'Le quang hung',
+        'year' => '1998',
+        'records' => [1,2,3],
+        'i' => 1
+    ]);
+});
+Route::prefix('task')->group(function (){
+    Route::get('create', function () {
+        return view('tasks.create',[
+            'value' => 'Hoc lap trinh',
+
+        ]);
+    })->name('task.create');
+
+    Route::get('edit', function () {
+        $value = 'Hoc lap trinh';
+        return view('tasks.edit')->with(['value'=>$value]);
+    })->name('task.edit');
+
+    Route::get('list', function () {
+        return view('tasks.list',[
+            'value' => 'Hoc lap trinh',
+
+        ]);
+    })->name('task.list');
+
+});
+
+Route::get('profile', function (){
+   return view('BaiTap.profile',[
+       'name' => 'Le Quang Hung',
+       'old' => '1998',
+       'TenTruong' => 'Uneti',
+       'QueQuan' => 'Vinh Phuc'
+   ]);
+});
+
+
+
+
 ////xoa
 //Route::delete('/task/delete', function () {
 //    dd('delete');
