@@ -7,6 +7,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('home', function () {
+    return view('home');
+});
 Route::get('hello1', function () {
     return view('hello1');
 });
@@ -47,6 +50,25 @@ Route::get('profile', function (){
        'TenTruong' => 'Uneti',
        'QueQuan' => 'Vinh Phuc'
    ]);
+});
+Route::get('list',function (){
+   return view('BaiTap.list',[
+       $list = [
+           [
+               'name' => 'Học View trong Laravel',
+               'status' => 0
+           ],
+           [
+               'name' => 'Học Route trong Laravel',
+               'status' => 1
+           ],
+
+        [
+            'name' => 'Làm bài tập View trong Laravel',
+            'status' => -1
+        ]
+    ]
+   ])->with('list',$list);
 });
 
 

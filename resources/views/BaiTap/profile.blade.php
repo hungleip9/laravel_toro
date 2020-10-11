@@ -12,7 +12,7 @@
         <li>Họ và tên: {{$name}}</li>
         <li>Năm sinh: {{$old}}</li>
         <li>Trường học: {{$TenTruong}}</li>
-        <li>Quê quán: {{$QueQuan}}}</li>
+        <li>Quê quán: {{$QueQuan}}</li>
         <li>Giới thiệu bản thân: Doc Than</li>
         <li>Mục tiêu nghề nghiệp: Developer</li>
     </ul>
